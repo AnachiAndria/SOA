@@ -1,0 +1,12 @@
+type Employee {
+  employeeId: ID!
+  name: String!
+  address: String!
+  socialSecurityNumber: String!
+  email: String!
+}
+
+type Query {
+  verifyIdentity(name: String!, employeeId: ID!, address: String!, ssn: String!): Boolean!
+  getEmployee(employeeId: ID!): Employee
+}

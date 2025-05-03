@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+docker-compose.dev.yml
+
+# Build files
+dist/
+build/
+
+# PostgreSQL volume (optional, if you mounted local db)
+postgres_data/
+
+# Editor folders
+.vscode/
+.idea/
+
+# Others
+*.sqlite
+*.tgz
+coverage/

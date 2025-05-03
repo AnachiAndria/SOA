@@ -1,0 +1,18 @@
+type Beneficiary {
+  beneficiaryId: ID!
+  employeeId: ID!
+  name: String!
+  relation: String!
+  percentage: Float!
+  createdAt: String
+  updatedAt: String
+}
+
+type Query {
+  getBeneficiaries(employeeId: ID!): [Beneficiary]
+}
+
+type Mutation {
+  updateBeneficiary(beneficiaryId: ID!, name: String!, relation: String!, percentage: Float!): Beneficiary
+  createBeneficiary(employeeId: ID!, name: String!, relation: String!, percentage: Float!): Beneficiary
+}

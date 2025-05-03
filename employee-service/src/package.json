@@ -1,0 +1,16 @@
+{
+    "name": "employee-service",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+      "start": "node src/server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "express-graphql": "^0.12.0",
+      "graphql": "^16.6.0",
+      "pg": "^8.9.0",
+      "uuid": "^9.0.0"
+    }
+  }
+  

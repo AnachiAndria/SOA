@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rh_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  employee-service:
+    build: ./employee-service
+    ports:
+      - "4001:4001"
+    depends_on:
+      - postgres
+
+  beneficiary-service:
+    build: ./beneficiary-service
+    ports:
+      - "4002:4002"
+    depends_on:
+      - postgres
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "4003:4003"
+
+  insurance-integration-service:
+    build: ./insurance-integration-service
+    ports:
+      - "4004:4004"
+
+volumes:
+  postgres_data:
