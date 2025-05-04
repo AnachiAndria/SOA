@@ -1,0 +1,26 @@
+INSERT INTO employees (employee_id, name, address, ssn, email)
+VALUES
+
+  -- Insert employee with ID 22222222-2222-2222-2222-222222222222
+  ('22222222-2222-2222-2222-222222222222', 'Jane Smith', '456 Elm St', '888-88-8888', 'jane.smith@example.com'),
+
+  -- Insert employee with ID 33333333-3333-3333-3333-333333333333
+  ('33333333-3333-3333-3333-333333333333', 'Robert Brown', '789 Oak St', '777-77-7777', 'robert.brown@example.com'),
+
+  -- Insert employee with ID 44444444-4444-4444-4444-444444444444
+  ('44444444-4444-4444-4444-444444444444', 'Lucy White', '321 Pine St', '666-66-6666', 'lucy.white@example.com'),
+
+  -- Insert employee with ID 55555555-5555-5555-5555-555555555555
+  ('55555555-5555-5555-5555-555555555555', 'Michael Green', '654 Cedar St', '555-55-5555', 'michael.green@example.com'),
+
+  -- Insert employee with ID 66666666-6666-6666-6666-666666666666
+  ('66666666-6666-6666-6666-666666666666', 'Sarah Black', '987 Birch St', '444-44-4444', 'sarah.black@example.com'),
+
+  -- Insert employee with ID 77777777-7777-7777-7777-777777777777
+  ('77777777-7777-7777-7777-777777777777', 'David Gray', '432 Maple St', '333-33-3333', 'david.gray@example.com'),
+
+  -- Insert employee with ID 88888888-8888-8888-8888-888888888888
+  ('88888888-8888-8888-8888-888888888888', 'Emma Blue', '654 Willow St', '222-22-2222', 'emma.blue@example.com'),
+
+  -- Insert employee with ID 99999999-9999-9999-9999-999999999999
+  ('99999999-9999-9999-9999-999999999999', 'James Red', '123 Birch St', '111-11-1111', 'james.red@example.com');
