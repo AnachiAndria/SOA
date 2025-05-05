@@ -1,29 +1,48 @@
-const express = require('express');
-const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
-const fs = require('fs');
-const path = require('path');
-const { createBeneficiary, getBeneficiaries, updateBeneficiary } = require('./resolvers');
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const { makeExecutableSchema } = require("@graphql-tools/schema");
+const fs = require("fs");
+const path = require("path");
 
+const {
+  createBeneficiary,
+  getBeneficiaries,
+  updateBeneficiary,
+} = require("./resolvers");
+
+// Load SDL schema
+const typeDefs = fs.readFileSync(
+  path.join(__dirname, "schema.graphql"),
+  "utf8"
+);
+
+// Define resolvers
 const resolvers = {
   Query: {
-    getBeneficiaries
+    getBeneficiaries,
   },
   Mutation: {
     createBeneficiary,
-    updateBeneficiary
-  }
+    updateBeneficiary,
+  },
 };
 
+// Create executable schema
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
 
 const app = express();
 
-const schema = buildSchema(fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8'));
+app.use(
+  "/beneficiary",
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
-app.use('/graphql', graphqlHTTP({
-  schema,
-  rootValue: resolvers,
-  graphiql: true,
-}));
-
-app.listen(4002, () => console.log('Beneficiary Service running on port 4002'));
+app.listen(4002, () =>
+  console.log("Beneficiary Service is running on port 4002")
+);

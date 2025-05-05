@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   postgres:
@@ -17,6 +17,10 @@ services:
     build: ./employee-service
     ports:
       - "4001:4001"
+    volumes:
+      - ./employee-service:/app
+    working_dir: /app/src
+    command: npm start
     depends_on:
       - postgres
 
@@ -24,6 +28,10 @@ services:
     build: ./beneficiary-service
     ports:
       - "4002:4002"
+    volumes:
+      - ./beneficiary-service:/app
+    working_dir: /app/src
+    command: npm start
     depends_on:
       - postgres
 
@@ -31,11 +39,19 @@ services:
     build: ./notification-service
     ports:
       - "4003:4003"
+    volumes:
+      - ./notification-service:/app
+    working_dir: /app/src
+    command: npm start
 
   insurance-integration-service:
     build: ./insurance-integration-service
     ports:
       - "4004:4004"
+    volumes:
+      - ./insurance-integration-service:/app
+    working_dir: /app/src
+    command: npm start
 
 volumes:
   postgres_data:
